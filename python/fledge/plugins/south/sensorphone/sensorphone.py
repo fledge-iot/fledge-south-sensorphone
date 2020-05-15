@@ -6,7 +6,6 @@
 
 """HTTP Listener handler for sensor phone application readings"""
 import asyncio
-import uuid
 import logging
 from threading import Thread
 from aiohttp import web
@@ -57,7 +56,7 @@ _DEFAULT_CONFIG = {
 def plugin_info():
     return {
         'name': 'sensorphone',
-        'version': '1.7.0',
+        'version': '1.8.0',
         'mode': 'async',
         'type': 'south',
         'interface': '1.0',
@@ -221,11 +220,9 @@ class SensorPhoneIngest(object):
                     raise ValueError('messages must be a list')
 
             for readings in messages:
-                key = str(uuid.uuid4())
                 data = {
                     'asset': asset,
                     'timestamp': timestamp,
-                    'key': key,
                     'readings': readings
                 }
                 async_ingest.ingest_callback(c_callback, c_ingest_ref, data)
