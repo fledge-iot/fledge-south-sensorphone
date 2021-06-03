@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 # FLEDGE_BEGIN
-# See: http://fledge.readthedocs.io/
+# See: http://fledge-iot.readthedocs.io/
 # FLEDGE_END
 
 """HTTP Listener handler for sensor phone application readings"""
@@ -56,7 +56,7 @@ _DEFAULT_CONFIG = {
 def plugin_info():
     return {
         'name': 'sensorphone',
-        'version': '1.9.0',
+        'version': '1.9.1',
         'mode': 'async',
         'type': 'south',
         'interface': '1.0',
